@@ -1,6 +1,6 @@
 import React from 'react';
 import {ShieldUser} from "lucide-react";
-import {LoginForm} from "@/components/auth/login-form";
+import {SignInForm} from "@/components/auth/signin-form";
 import Image from "next/image";
 import placeholder from "@/public/placeholder.png";
 import Link from "next/link";
@@ -20,7 +20,7 @@ export default function SignInPage() {
                 </div>
                 <div className="flex flex-1 items-center justify-center">
                     <div className="w-full max-w-xs">
-                        <LoginForm/>
+                        <SignInForm/>
                     </div>
                 </div>
             </div>
