@@ -23,15 +23,16 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import {User} from "better-auth";
+
 import {authClient} from "@/lib/auth-client";
 import {useRouter} from "next/navigation"
+import {User} from "better-auth";
+
 
 export default function UserMenu({user}: { user: User }) {
 
     // Function to handle logout
     const router = useRouter();
-
     async function handleLogout() {
         await authClient.signOut({
             fetchOptions: {
@@ -47,8 +48,8 @@ export default function UserMenu({user}: { user: User }) {
             <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="h-auto p-0 hover:bg-transparent">
                     <Avatar>
-                        <AvatarImage src={user?.image || ""} alt={user?.name}/>
-                        <AvatarFallback>{user.name.slice(0, 2)}</AvatarFallback>
+                        <AvatarImage src={user?.image || undefined} alt={user?.name}/>
+                        <AvatarFallback>{user?.name.slice(0, 2)}</AvatarFallback>
                     </Avatar>
                 </Button>
             </DropdownMenuTrigger>

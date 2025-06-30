@@ -15,6 +15,7 @@ import {ShieldUser} from "lucide-react";
 
 import {authClient} from "@/lib/auth-client";
 import UserMenu from "@/components/navbar/user-menu";
+import {Session} from "@/lib/auth-types";
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
@@ -25,7 +26,7 @@ const navigationLinks = [
 export default function Navbar() {
 
     const {data: session, error} = authClient.useSession()
-    console.log("Session Data Navbar",session)
+
     if (error) {
         console.error("Error fetching session:", error);
     }
@@ -114,7 +115,7 @@ export default function Navbar() {
                 {/* Right side */}
                 <div className="flex items-center gap-2">
                     {session ? (
-                        <UserMenu user={session?.user}/>
+                        <UserMenu user={session.user}/>
                     ) : (
                         <Button asChild variant="ghost" size="sm" className="text-sm">
                             <a href="/signin">Sign In</a>
