@@ -14,19 +14,21 @@ import {
 import {ShieldUser} from "lucide-react";
 
 import {authClient} from "@/lib/auth-client";
-import UserMenu from "@/components/navbar-components/user-menu";
+import UserMenu from "@/components/navbar/user-menu";
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
-    {href: "#", label: "Home", active: true},
+    {href: "/", label: "Better Auth", active: true},
+    {href: "https://www.better-auth.com/docs/introduction", label: "Docs", active: false},
 ]
 
 export default function Navbar() {
 
     const {data: session, error} = authClient.useSession()
-    console.log("Session data:", session);
-    console.log("Session error:", error);
-    console.log("User:", session?.user.name)
+    console.log("Session Data Navbar",session)
+    if (error) {
+        console.error("Error fetching session:", error);
+    }
 
     return (
         <header className="border-b px-4 md:px-12">

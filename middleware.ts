@@ -3,12 +3,15 @@ import {getSessionCookie} from "better-auth/cookies"
 
 export async function middleware(request: NextRequest) {
     const sessionCookies = getSessionCookie(request);
+    console.log("Log from middleware",sessionCookies);
 
-    if (!sessionCookies) return NextResponse.redirect(new URL('/', request.url))
+    const pathname = request.nextUrl.pathname;
+    const isAuthenticated = !!sessionCookies
 
-    return NextResponse.next();
+    if (isAuthenticated && pathname.startsWith("/signin")) return  NextResponse.redirect(new  URL('/', request.nextUrl))
+
 }
 
 export const config = {
-    matcher: ["/dashboard"], // Specify the routes the middleware applies to
+    matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };

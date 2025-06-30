@@ -2,13 +2,12 @@
 
 import {cn} from "@/lib/utils"
 import {z} from "zod"
-import React, {ComponentProps, useState} from "react";
+import React, {ComponentProps} from "react";
 import {useForm} from "react-hook-form"
 import {zodResolver} from "@hookform/resolvers/zod";
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
@@ -56,6 +55,7 @@ export function SignUpForm({className, ...props}: ComponentProps<"form">) {
                 onSuccess: (ctx) => {
                     route.push("/signin");
                     toast.success("Sign up successful! Please log in.");
+                    console.log("Sign up successfully", ctx);
                 },
                 onError: (ctx) => {
                     console.log("Sign up error:", ctx);

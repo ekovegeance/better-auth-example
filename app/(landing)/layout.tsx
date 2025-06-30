@@ -1,4 +1,4 @@
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/navbar/navbar";
 import {ReactNode} from "react";
 
 export default function DashboardLayout({children,}: { children: ReactNode }) {
@@ -7,7 +7,7 @@ export default function DashboardLayout({children,}: { children: ReactNode }) {
         <body>
         <main>
             <Navbar/>
-            <section className="container px-4 md:px-12">
+            <section className="container mx-auto px-4 py-8">
             {children}
             </section>
         </main>

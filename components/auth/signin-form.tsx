@@ -1,7 +1,6 @@
 "use client";
 
 import {cn} from "@/lib/utils"
-import {Label} from "@/components/ui/label"
 import {z} from "zod"
 import React, {ComponentProps} from "react";
 import {useForm} from "react-hook-form"
@@ -34,11 +33,11 @@ export function SignInForm({className, ...props}: ComponentProps<"form">) {
         }
     })
 
-    function onSubmit(values: z.infer<typeof signInSchema>) {
+   async function onSubmit(values: z.infer<typeof signInSchema>) {
         // Handle form submission logic here
         console.log("Form submitted with values:", values);
 
-        const {data, error} = authClient.signIn.email({
+        const {data, error} = await authClient.signIn.email({
                 email: values.email,
                 password: values.password,
                 callbackURL: "/",
@@ -54,7 +53,8 @@ export function SignInForm({className, ...props}: ComponentProps<"form">) {
                     console.log("Error during sign in", ctx);
                 }
             }
-        )
+        );
+        console.log(data, error);
     }
 
     return (
