@@ -1,8 +1,7 @@
 "use client";
-import React, {useActionState, useState} from 'react';
+import React, {useState} from 'react';
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
-import {User} from "better-auth";
 import {Button} from "@/components/ui/button";
 import {Session} from '@/lib/auth-types';
 import {useRouter} from 'next/navigation';
@@ -14,7 +13,7 @@ import {toast} from "sonner";
 export default function UserCard(props: { session: Session, activeSessions: Session["session"][] }) {
 
     const router = useRouter();
-    const {data, isPending} = useSession();
+    const {data} = useSession();
     const session = data || props.session;
     const [isTerminating, setIsTerminating] = useState<string>();
     const [activeSessions, setActiveSessions] = useState(props.activeSessions);
@@ -39,7 +38,7 @@ export default function UserCard(props: { session: Session, activeSessions: Sess
         setIsTerminating(undefined);
     }
 
-    console.log("activeSessions from client side", activeSessions?.length);
+
     return (
         <Card className="shadow-none">
             <CardHeader>
@@ -80,11 +79,9 @@ export default function UserCard(props: { session: Session, activeSessions: Sess
                                             ) : session.id === props.session?.session.id ? ("Sign Out") : ("Terminate")}
                                         </button>
                                     </div>
-
                                 </div>
                             )
                         })}
-
                 </div>
             </CardContent>
         </Card>

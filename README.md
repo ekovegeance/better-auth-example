@@ -1,14 +1,35 @@
 
 
-## Better Auth Example
+# Better Auth Example
 
 First, run the development server:
 
+```bash
+git clone https://github.com/ekovegeance/better-auth-example.git
+cd better-auth-example
+pnpm install
+```
+
+Set up your environment variables:
+```bash
+cp .env.example .env
+```
+
+Start the Development Server
 ```bash
 pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Features
+
+Here’s what this app supports out of the box:
+
+- **[Email & Password](https://www.better-auth.com/docs/basic-usage#email-password)**: Simple and secure authentication.
+- **[Password Reset](https://www.better-auth.com/docs/concepts/email#password-reset-email)**: Let users reset their passwords if they forget them.
+- **[Email Verification](https://www.better-auth.com/docs/concepts/email#email-verification)**: Ensure users verify their email addresses.
+- **[Session Management](https://www.better-auth.com/docs/concepts/session-management)**: Handle user sessions seamlessly.
 
 ## Learn More
 

@@ -15,7 +15,6 @@ import {ShieldUser} from "lucide-react";
 
 import {authClient} from "@/lib/auth-client";
 import UserMenu from "@/components/navbar/user-menu";
-import {Session} from "@/lib/auth-types";
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
