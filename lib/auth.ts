@@ -44,7 +44,6 @@ export const auth = betterAuth({
         subject: "Verify your email",
         react: VerificationEmail({
             name: user.name,
-            userImage: user?.image || "",
             email: user.email,
             verificationLink: url,
         }),

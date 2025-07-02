@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { Loader2 } from "lucide-react";
+import { FaDiscord } from "react-icons/fa";
 
 const signInSchema = z.object({
   email: z.string().email().min(2, "Email is required"),
@@ -26,7 +27,8 @@ const signInSchema = z.object({
 
 export function SignInForm({ className, ...props }: ComponentProps<"form">) {
   const [loading, setLoading] = useState(false);
-  const [gitHubLoading, setGitHubLoading] = useState(false);
+  const [githubLoading, setGitHubLoading] = useState(false);
+    const [discordLoading, setDiscordLoading] = useState(false);
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
@@ -75,6 +77,18 @@ export function SignInForm({ className, ...props }: ComponentProps<"form">) {
 );
     console.log("GitHub sign in data:", data);
   };
+
+const signInWithDiscord = async () => {
+    await authClient.signIn.social({
+        provider: "discord",
+        callbackURL: "/",
+    },{
+        onRequest() {
+            setDiscordLoading(true);
+        },
+    }
+); 
+}
 
   return (
     <div className="flex flex-col gap-6">
@@ -148,9 +162,9 @@ export function SignInForm({ className, ...props }: ComponentProps<"form">) {
         variant="outline"
         className="w-full"
         onClick={signInWithGitHub}
-        disabled={gitHubLoading}
+        disabled={githubLoading}
       >
-        {gitHubLoading ? (
+        {githubLoading ? (
           <Loader2 size={16} className=" animate-spin" />
         ) : (
           <>
@@ -161,6 +175,21 @@ export function SignInForm({ className, ...props }: ComponentProps<"form">) {
               />
             </svg>
             <span className="ml-2">Sign in with GitHub</span>
+          </>
+        )}
+      </Button>
+      <Button
+        variant="outline"
+        className="w-full"
+        onClick={signInWithDiscord}
+        disabled={discordLoading}
+      >
+        {discordLoading ? (
+          <Loader2 size={16} className=" animate-spin" />
+        ) : (
+          <>
+            <FaDiscord />
+            <span className="ml-2">Sign in with Discord</span>
           </>
         )}
       </Button>

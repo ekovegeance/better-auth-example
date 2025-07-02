@@ -21,7 +21,6 @@ interface VercelInviteUserEmailProps {
 
 export const VerificationEmail = ({
   name,
-  userImage,
   email,
   verificationLink,
 }: VercelInviteUserEmailProps) => {
