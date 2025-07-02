@@ -5,8 +5,8 @@
 First, run the development server:
 
 ```bash
-git clone https://github.com/ekovegeance/better-auth-example.git
-cd better-auth-example
+git clone https://github.com/ekovegeance/better-auth-nexts.git
+cd better-auth-nexts
 pnpm install
 ```
 
@@ -39,6 +39,7 @@ To learn more about Tech Stack used in this project, take a look at the followin
 - [Better Auth Documentation](https://better-auth.com/docs) - learn about Better Auth features and API.
 - [Drizzle ORM Documentation](https://orm.drizzle.team/docs) - learn about Drizzle ORM features and API.
 - [Shadcn UI Documentation](https://ui.shadcn.com/docs) - learn about shadcn UI features and API.
+- [Neon DB](https://neon.com/) - learn about Database with Neon
 
 ## Deploy on Vercel
 
