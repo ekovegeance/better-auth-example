@@ -4,6 +4,7 @@ import { db } from "@/db";
 import {nextCookies} from "better-auth/next-js";
 import {schema} from "@/db/schema";
 import { resend } from "@/lib/email/resend";
+import VerificationEmail from "@/components/email-template";
 
 
 const from = process.env.RESEND_FROM_EMAIL
@@ -37,11 +38,16 @@ export const auth = betterAuth({
         from: from as string,
         to: user.email,
         subject: "Verify your email",
-        html: `<a href="${url}">Verify your email address</a>`,
+        react: VerificationEmail({
+            name: user.name,
+            userImage: user?.image || "",
+            email: user.email,
+            verificationLink: url,
+        }),
       });
       console.log("Email sent:", rest, "to:", user.email, "url:", url);
     },
-    
+
     sendOnSignUp: true,
     autoSignInAfterVerification: true,
   },
