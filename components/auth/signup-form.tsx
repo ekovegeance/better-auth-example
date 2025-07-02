@@ -2,7 +2,7 @@
 
 import {cn} from "@/lib/utils"
 import {z} from "zod"
-import React, {ComponentProps} from "react";
+import React, {ComponentProps, useState} from "react";
 import {useForm} from "react-hook-form"
 import {zodResolver} from "@hookform/resolvers/zod";
 import {
@@ -19,6 +19,7 @@ import Link from "next/link";
 import {authClient} from "@/lib/auth-client"; //import the auth client
 import {useRouter} from 'next/navigation'
 import {toast} from "sonner"
+import { Loader2 } from "lucide-react";
 
 
 const signUpSchema = z.object({
@@ -29,6 +30,7 @@ const signUpSchema = z.object({
 
 export function SignUpForm({className, ...props}: ComponentProps<"form">) {
     const route = useRouter(); //use the router to navigate after signup
+    const [loading, setLoading ] = useState(false); //loading state for the form submission
     const form = useForm<z.infer<typeof signUpSchema>>({
         resolver: zodResolver(signUpSchema),
         defaultValues: {
@@ -51,6 +53,7 @@ export function SignUpForm({className, ...props}: ComponentProps<"form">) {
             {
                 onRequest: (ctx) => {
                     console.log("Request context:", ctx);
+                    setLoading(true); //set loading to true when the request is made
                 },
                 onSuccess: (ctx) => {
                     route.push("/signin");
@@ -115,8 +118,8 @@ export function SignUpForm({className, ...props}: ComponentProps<"form">) {
                             </FormItem>
                         )}
                     />
-                    <Button type="submit" className="w-full">
-                        Register
+                    <Button type="submit" className="w-full" disabled={loading}>
+                        {loading ? <Loader2 size={16} className=" animate-spin"/> : "Sign Up"}
                     </Button>
                     <div
                         className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">

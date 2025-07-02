@@ -2,7 +2,7 @@
 
 import {cn} from "@/lib/utils"
 import {z} from "zod"
-import React, {ComponentProps} from "react";
+import React, {ComponentProps, useState} from "react";
 import {useForm} from "react-hook-form"
 import {zodResolver} from "@hookform/resolvers/zod";
 import {
@@ -17,6 +17,7 @@ import {Input} from "@/components/ui/input"
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import {authClient} from "@/lib/auth-client";
+import { Loader2 } from "lucide-react";
 
 
 const signInSchema = z.object({
@@ -25,6 +26,7 @@ const signInSchema = z.object({
 })
 
 export function SignInForm({className, ...props}: ComponentProps<"form">) {
+    const [loading, setLoading] = useState(false);
     const form = useForm<z.infer<typeof signInSchema>>({
         resolver: zodResolver(signInSchema),
         defaultValues: {
@@ -45,6 +47,7 @@ export function SignInForm({className, ...props}: ComponentProps<"form">) {
             }, {
                 onRequest: (ctx) => {
                     console.log("Request context:", ctx);
+                    setLoading(true);
                 },
                 onSuccess: (ctx) => {
                     console.log("Sign in successfully", ctx);
@@ -96,8 +99,8 @@ export function SignInForm({className, ...props}: ComponentProps<"form">) {
                             </FormItem>
                         )}
                     />
-                    <Button type="submit" className="w-full">
-                        Login
+                    <Button type="submit" className="w-full" disabled={loading}>
+                        {loading ? <Loader2 size={16} className="animate-spin"/> : "Sig In"}
                     </Button>
                     <div
                         className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
