@@ -27,8 +27,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Here’s what this app supports out of the box:
 
 - **[Email & Password](https://www.better-auth.com/docs/basic-usage#email-password)**: Simple and secure authentication.
-- **[Password Reset](https://www.better-auth.com/docs/concepts/email#password-reset-email)**: Let users reset their passwords if they forget them.
+- **[Social Sign On](https://www.better-auth.com/docs/basic-usage#social-sign-on)**: Better Auth supports multiple social providers, including Google, GitHub, Apple, Discord, and more.
 - **[Email Verification](https://www.better-auth.com/docs/concepts/email#email-verification)**: Ensure users verify their email addresses.
+- **[Password Reset](https://www.better-auth.com/docs/concepts/email#password-reset-email)**: Let users reset their passwords if they forget them.
 - **[Session Management](https://www.better-auth.com/docs/concepts/session-management)**: Handle user sessions seamlessly.
 
 ## Learn More
