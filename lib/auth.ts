@@ -1,13 +1,13 @@
-import { betterAuth } from "better-auth"
-import { drizzleAdapter} from "better-auth/adapters/drizzle";
+import { betterAuth } from "better-auth";
+import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "@/db";
-import {nextCookies} from "better-auth/next-js";
-import {schema} from "@/db/schema";
+import { nextCookies } from "better-auth/next-js";
+import { schema } from "@/db/schema";
 import { resend } from "@/lib/email/resend";
-import VerificationEmail from "@/components/email-template";
+import EmailVerification from "@/components/email-templates/email-verification";
+import EmailResetPassword from "@/components/email-templates/email-reset-password";
 
-
-const from = process.env.RESEND_FROM_EMAIL
+const from = process.env.RESEND_FROM_EMAIL;
 
 export const auth = betterAuth({
   secret: process.env.BETTER_AUTH_SECRET,
@@ -25,6 +25,19 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: true,
+
+    sendResetPassword: async ({ user, url }) => {
+      await resend.emails.send({
+        from: from as string,
+        to: user.email,
+        subject: "Reset Password",
+        react: EmailResetPassword({
+          name: user.name,
+          email: user.email,
+          resetLink: url,
+        }),
+      });
+    },
   },
   socialProviders: {
     github: {
@@ -32,23 +45,22 @@ export const auth = betterAuth({
       clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
     },
     discord: {
-        clientId: process.env.DISCORD_CLIENT_ID as string,
-        clientSecret: process.env.DISCORD_CLIENT_SECRET as string,
-    }
+      clientId: process.env.DISCORD_CLIENT_ID as string,
+      clientSecret: process.env.DISCORD_CLIENT_SECRET as string,
+    },
   },
   emailVerification: {
     sendVerificationEmail: async ({ user, url }) => {
-      const rest = await resend.emails.send({
+      await resend.emails.send({
         from: from as string,
         to: user.email,
         subject: "Verify your email",
-        react: VerificationEmail({
-            name: user.name,
-            email: user.email,
-            verificationLink: url,
+        react: EmailVerification({
+          name: user.name,
+          email: user.email,
+          verificationLink: url,
         }),
       });
-      console.log("Email sent:", rest, "to:", user.email, "url:", url);
     },
 
     sendOnSignUp: true,

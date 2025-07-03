@@ -125,7 +125,7 @@ const signInWithDiscord = async () => {
                 <FormItem>
                   <div className="flex items-center justify-between">
                     <FormLabel>Password</FormLabel>
-                    <Link href="/" className="text-sm underline">
+                    <Link href="/forgot-password" className="text-sm underline">
                       Forgot Password
                     </Link>
                   </div>

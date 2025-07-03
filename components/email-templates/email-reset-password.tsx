@@ -5,26 +5,24 @@ import {
   Head,
   Heading,
   Html,
+  Img,
   Link,
   Section,
   Tailwind,
   Text,
 } from "@react-email/components";
-import { ShieldUser } from "lucide-react";
 
-interface VercelInviteUserEmailProps {
+interface EmailResetPasswordProps {
   name?: string;
-  userImage?: string;
   email?: string;
-  verificationLink?: string;
+  resetLink?: string;
 }
 
-export const VerificationEmail = ({
+export const EmailResetPassword = ({
   name,
   email,
-  verificationLink,
-}: VercelInviteUserEmailProps) => {
-
+  resetLink,
+}: EmailResetPasswordProps) => {
   return (
     <Html>
       <Head />
@@ -32,7 +30,13 @@ export const VerificationEmail = ({
         <Body className="mx-auto my-auto bg-white px-2 font-sans">
           <Container className="mx-auto my-[40px] max-w-[465px] rounded border border-[#eaeaea] border-solid p-[20px]">
             <Section className="mt-[32px]">
-              <ShieldUser size={30} className="mx-auto" />
+              <Img
+                src="https://avatars.githubusercontent.com/u/71420013?s=200&v=4"
+                width="40"
+                height="37"
+                alt="Vngne Logo"
+                className="mx-auto my-0"
+              />
             </Section>
             <Heading className="mx-0 my-[30px] p-0 text-center font-normal text-[24px] text-primary">
               <strong>Better Auth Next TS</strong>
@@ -48,20 +52,20 @@ export const VerificationEmail = ({
               >
                 {email}
               </Link>
-              ) Verfication your email address
+              ) has requested to reset their password.
             </Text>
             <Section className="mt-[32px] mb-[32px] text-center">
               <Button
                 className="rounded-lg bg-[#000000] px-5 py-3 text-center font-semibold text-[12px] text-white no-underline"
-                href={verificationLink}
+                href={resetLink}
               >
-                Verify Email Address
+                Reset Password
               </Button>
             </Section>
             <Text className="text-[14px] text-primary leading-[24px]">
               or copy and paste this URL into your browser:{" "}
-              <Link href={verificationLink} className="text-blue-600 no-underline">
-                {verificationLink}
+              <Link href={resetLink} className="text-blue-600 no-underline">
+                {resetLink}
               </Link>
             </Text>
           </Container>
@@ -71,4 +75,4 @@ export const VerificationEmail = ({
   );
 };
 
-export default VerificationEmail;
+export default EmailResetPassword;
