@@ -15,6 +15,8 @@ import {ShieldUser} from "lucide-react";
 
 import {authClient} from "@/lib/auth-client";
 import UserMenu from "@/components/navbar/user-menu";
+import { ModeToggle } from "@/components/mode-toggle";
+import Link from "next/link";
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
@@ -121,8 +123,9 @@ export default function Navbar() {
                         </Button>
                     )}
                     <Button asChild size="sm" className="text-sm">
-                        <a href="#">Get Started</a>
+                        <Link href="https://github.com/ekovegeance/better-auth-nexts">Get Started</Link>
                     </Button>
+                    <ModeToggle/>
                 </div>
             </div>
         </header>
