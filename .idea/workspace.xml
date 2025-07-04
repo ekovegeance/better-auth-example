@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3187be8f-7757-495a-87a1-881de46cb89b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/db/index.ts" afterDir="false" />
+    <list default="true" id="3187be8f-7757-495a-87a1-881de46cb89b" name="Changes" comment="feat: add workspace configuration file for project settings and Git integration">
+      <change afterPath="$PROJECT_DIR$/components/landing/edit-user-dialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(landing)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(landing)/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/auth/signin-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/auth/signin-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/auth/signup-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/auth/signup-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/landing/user-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/landing/user-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,10 +24,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;ekovegeance&quot;
-  }
+  &quot;lastFilter&quot;: {}
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
@@ -90,10 +92,44 @@
       <updated>1751545388340</updated>
       <workItem from="1751545392060" duration="294000" />
       <workItem from="1751545719088" duration="505000" />
+      <workItem from="1751546345984" duration="619000" />
+      <workItem from="1751597687096" duration="8264000" />
     </task>
+    <task id="LOCAL-00001" summary="fix: correct typo in database variable name and update module file reference">
+      <option name="closed" value="true" />
+      <created>1751546560267</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1751546560267</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: add workspace configuration file for project settings and Git integration">
+      <option name="closed" value="true" />
+      <created>1751546585544</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1751546585544</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: add workspace configuration file for project settings and Git integration" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add workspace configuration file for project settings and Git integration" />
   </component>
 </project>

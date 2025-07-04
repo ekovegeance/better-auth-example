@@ -27,10 +27,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Here’s what this app supports out of the box:
 
 - **[Email & Password](https://www.better-auth.com/docs/basic-usage#email-password)**: Simple and secure authentication.
-- **[Social Sign On](https://www.better-auth.com/docs/basic-usage#social-sign-on)**: Better Auth supports multiple social providers, including Google, GitHub, Apple, Discord, and more.
+- **[Social Sign On](https://www.better-auth.com/docs/basic-usage#social-sign-on)**: Authenticate users with their social accounts like Google, GitHub, etc.
 - **[Email Verification](https://www.better-auth.com/docs/concepts/email#email-verification)**: Ensure users verify their email addresses.
 - **[Password Reset](https://www.better-auth.com/docs/concepts/email#password-reset-email)**: Let users reset their passwords if they forget them.
 - **[Session Management](https://www.better-auth.com/docs/concepts/session-management)**: Handle user sessions seamlessly.
+- **[Users & Accounts](https://www.better-auth.com/docs/concepts/users-accounts)** : Manage user accounts and profiles.
 
 ## Learn More
 
@@ -41,6 +42,7 @@ To learn more about Tech Stack used in this project, take a look at the followin
 - [Drizzle ORM Documentation](https://orm.drizzle.team/docs) - learn about Drizzle ORM features and API.
 - [Shadcn UI Documentation](https://ui.shadcn.com/docs) - learn about shadcn UI features and API.
 - [Neon DB](https://neon.com/) - learn about Database with Neon
+- [Resend](https://resend.com/) - learn about Resend for sending emails
 
 ## Deploy on Vercel
 
